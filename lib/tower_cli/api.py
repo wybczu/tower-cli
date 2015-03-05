@@ -89,9 +89,8 @@ class Client(Session):
 
         # Call the superclass method.
         try:
-            with warnings.catch_warnings():
-                r = super(Client, self).request(method, url, *args,
-                                                verify=False, **kwargs)
+            r = super(Client, self).request(method, url, *args,
+                                            verify=settings.verify_ssl, **kwargs)
         except ConnectionError as ex:
             if settings.verbose:
                 debug.log('Cannot connect to Tower:', fg='yellow', bold=True)

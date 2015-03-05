@@ -93,6 +93,20 @@ greatest:
   * `~/.tower_cli.cfg` (written using `tower-cli config`)
   * run-time paramaters
 
+#### SSL
+
+By default tower-cli will not verify Ansible Tower's SSL certificate. To enable
+verificaton, what is strongly recommend, set `verify_ssl` option to `True`:
+
+```bash
+$ tower-cli config verify_ssl true
+```
+
+You can also specify path to your CA or certificate itself for self-signed one
+
+```bash
+$ tower-cli config verify_ssl /etc/ssl/certs/ca.pem
+```
 
 ### Usage
 
